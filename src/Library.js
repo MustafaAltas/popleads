@@ -13,7 +13,7 @@ const Book = ({ title, author, publicationYear }) => {
 }
 
 
-const Library = ({setSearch}) => {
+const Library = ({setSearch,search,handleBigToSmall,handleSmallToBig}) => {
 
   const [isLoading, setIsLoading] = React.useState(true);
     
@@ -33,9 +33,11 @@ const Library = ({setSearch}) => {
           <span>
             <UpButton
               className={styles.arrow}
+              onClick={handleBigToSmall}
             />
             <DownButton
               className={styles.arrow}
+              onClick={handleSmallToBig}
             />
           </span>
         </div>
@@ -45,6 +47,7 @@ const Library = ({setSearch}) => {
           id="search"
           placeholder="Search books..."
           className={styles.search}
+          // value={search}
         />
       </header>
       <main>
